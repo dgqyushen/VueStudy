@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    下拉框:
+    <select v-model="qinjiang">
+        <option value="" disabled>请选择下列数值</option>
+        <option value="A">A</option>
+        <option value="B" >B</option>
+        <option value="C">C</option>
+    </select>
+
+    <p>
+        选中的是：{{qinjiang}}
+    </p>
+
+</div>
+
+
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            qinjiang:"",
+            checked: false
+        }
+    });
+
+</script>
+
+
+</body>
+</html>

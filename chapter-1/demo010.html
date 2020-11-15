@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片浏览器</title>
+<!--    <script src="../lib/vue.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!--    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">-->
+<!--    <script src="https://unpkg.com/element-ui/lib/index.js"></script>-->
+</head>
+<body>
+<div id="all">
+    <input type="button" value="上一张" v-on:click="minus" v-show="index!=0">
+<!--    <img v-bind:src="imgArray[index]" alt="这是一张图片">-->
+    <img v-bind:src="imgArray[index]" alt="这只是一张拿来测试的图片罢了">
+    <input type="button" value="下一张" v-on:click="plus" v-show="index!=imgArray.length-1">
+
+
+</div>
+
+
+<script>
+    var imageArray = Array("pj.jpg","wb.jpg","xs.jpg");
+    var app = new Vue({
+        el:"#all",
+        data:{
+            // flagHead:false,
+            // flagEnd:true,
+            index:0,
+            imgArray:[
+               "https://fancycrave.com/wp-content/uploads/2020/03/facebook-login-app-startup-screen_t20_bk2dVg.jpg",
+                "https://fancycrave.com/wp-content/uploads/2019/03/Finger-Touching-the-Facebook-Icon-on-an-iPad.jpg",
+                "https://fancycrave.com/wp-content/uploads/2019/12/password-computer-security-or-safety-concept-PBUAQ8A.jpg"
+
+            ],
+            message:"Hello VUE"
+
+        },
+        methods:{
+            minus:function (){
+                // if (this.index=0){
+                //     this.flagHead= false;
+                // }else {
+                //     this.flagHead=true;
+                // }
+                this.index--;
+                console.log(this.index);
+            },
+
+            plus:function (){
+                // if (this.flag=2){
+                //     this.flagEnd=false;
+                // }else {
+                //     this.flagEnd=true;
+                // }
+              this.index++;
+                console.log(this.index);
+            }
+
+        }
+    });
+</script>
+</body>
+</html>

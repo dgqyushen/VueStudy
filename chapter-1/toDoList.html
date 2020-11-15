@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小黑记事本</title>
+    <script src="../lib/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+
+<!--    <input type="text" v-model="message" v-on:keyup.enter="log">-->
+    <input type="text" v-model="message" v-on:keyup.enter="addNewTask">
+    <h2>{{message}}</h2>
+    <ul>
+        <li v-for="(item,index) in taskArr">{{index+1}}=>{{item}}
+            <input type="button" value="删除" v-on:click="removeThisTask(index)">
+        </li>
+    </ul>
+    <br>
+    <input type="button" value="删除最新的一项" v-on:click="removeNewTask" v-show="this.taskArr.length!==0">
+    <input type="button" value="删除所有项" v-on:click="removeAllTask" v-show="this.taskArr.length!==0" >
+</div>
+
+<script>
+    // var len = app.taskArr.length-1;
+    var app = new Vue({
+        el:"#app",
+        data:{
+            flag:false,
+            message:"",
+            taskArr:["学习JAVA","学习Linux","学习JavaScript"]
+        },
+        methods:{
+            log:function (){
+                alert(this.message);
+            },
+            addNewTask:function (){
+                this.taskArr.push(this.message);
+                this.message="";
+            },
+            removeNewTask:function (){
+                this.taskArr.pop();
+            },
+            removeAllTask:function (){
+                if(this.taskArr.length===0) {
+                    alert("没有东西给你删除了");
+                }
+
+                this.taskArr=[];
+            },
+            removeThisTask:function (index){
+                console.log(index);
+
+                 this.taskArr.splice(index,1);
+            }
+            // isEmpty:function (){
+            //     if (this.taskArr==[]){
+            //         this.flag=true;
+            //     }
+            }
+
+    });
+
+    axios.get()
+</script>
+
+</body>
+</html>

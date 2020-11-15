@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <input type="button" value="-" v-on:click="minus">
+    <span>{{num}}</span>
+    <input type="button" value="+" v-on:click="plus">
+
+</div>
+
+
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+          num : 1
+        },
+        methods: {
+         minus:function (){
+             if (this.num<=0){
+                 alert("不能再减少了");
+                 return 0;
+             }
+             this.num--;
+
+         },
+         plus:function (){
+             if (this.num>=10){
+                 alert("不能再增加了");
+                 return 0;
+             }
+             this.num++;
+         }
+        }
+    });
+</script>
+
+
+
+
+</body>
+</html>
